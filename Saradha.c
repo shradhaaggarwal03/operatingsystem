@@ -146,7 +146,7 @@ int main()
 		M[i].once_used=0;
 	}
 
-	for(i=0;i<4;i++)//initalizing process
+	for(i=0;i<4;i++)//initalizing processes
 	{
 		P[i].got_memory=0;
 	}
