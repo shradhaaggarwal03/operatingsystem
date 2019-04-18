@@ -18,16 +18,16 @@
 	printf("\nEnter the no of process: ");
 	scanf("%d",&n);					//total no of process
 	for(i=0;i<=n-1;i++){				//entering at and bt
-	printf("\nEnter Arrival Time and Burst Time for process P[%d]: ",i);
+	printf("\nEnter Arrival Time and Burst Time for process P[%d]: ",i);//entering by user
 		scanf("%d%d", &at[i],&bt[i]);
 		rbt[i]=bt[i];
 		total_bt=total_bt+bt[i];
 		}
-	
 
-	
 
-	
+
+
+
 
 	printf("\n\tProcess\t|\tArival Time\t|\tBurst Time\t|");
 	//sorting process in accending ordre wrt at
@@ -65,37 +65,37 @@
 	if(front>=rear){
 		printf("\nfront :%d\nrear :%d",front,rear);
 		printf("\nunderflow");
-		
+
 		}
 	else{
 		rbt[i]=queue_1[front];
 		front=front+1;
 		if(flag[i]==0){
-			
+
 			//if process traversed first time
 			if(rbt[i]>q1){
 				printf("\n1flag[%d]: %d",i,flag[i]);
 				time=time+q1;
 				rbt[i]=rbt[i]-q1;
 				flag[i]++;
-				
+
 				for(j=front+1;j<n;j++){
 					if(at[j]<=time){
 					rear=rear+1;
 					queue_1[rear]=rbt[j];
-					
+
 					}
 				}
-				
+
 				rear=rear+1;
 				queue_1[rear]=rbt[i];
-				
+
 			}
 			//if process traversed second time
 			else{
 				printf("\n1flag[%d]: %d",i,flag[i]);
 				time=time+rbt[i];
-				
+
 				for(j=front+1;j<n;j++){
 					if(at[j]<=time){
 					rear=rear+1;
@@ -103,28 +103,28 @@
 					printf("10\n");
 					}
 				}
-				
+
 				flag[i]++;
 				ctime[i]=time;
 				tat[i]=ctime[i]-at[i];
 				wt[i]=tat[i]-bt[i];
 			}
-			
-			
+
+
 		//	printf("\t%d\t\t%d\t\t%d\t\t%d\t\t%d",i,at[i],bt[i],ctime[i],tat[i],wt[i]);
-	
+
 
 		}
-	
+
 
 		else if(flag[i]==1){
 			//if process traversed first time
-			
+
 			if(rbt[i]>q2){
 				printf("\n1flag[%d]: %d",i,flag[i]);
 				time=time+q2;
 				rbt[i]=rbt[i]-q2;
-				
+
 				for(j=front+1;j<n;j++){
 					if(at[j]<=time){
 					rear=rear+1;
@@ -132,12 +132,12 @@
 					printf("10\n");
 					}
 				}
-				
+
 				flag[i]++;
 				rear=rear+1;
 				queue_1[rear]=rbt[i];
-				
-	
+
+
 
 			}
 			//if process traversed second time
@@ -145,7 +145,7 @@
 				printf("\n1flag[%d]: %d",i,flag[i]);
 				time=time+rbt[i];
 				flag[i]++;
-				
+
 				for(j=front+1;j<n;j++){
 					if(at[j]<=time){
 					rear=rear+1;
@@ -153,10 +153,10 @@
 					printf("10\n");
 					}
 				}
-				
+
 				ctime[i]=time;
 				tat[i]=ctime[i]-at[i];
 				wt[i]=tat[i]-bt[i];
 			//	printf("\t%d\t\t%d\t\t%d\t\t%d\t\t%d",i,at[i],bt[i],ctime[i],tat[i],wt[i]);
-			
+
 
